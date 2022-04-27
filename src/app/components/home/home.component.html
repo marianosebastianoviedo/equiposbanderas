@@ -1,0 +1,68 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff">   
+<img width="200px" class="faa-spin faa-reverse faa-slow animated" src="./assets/rhcp.png" alt="">
+<p style="font-size: 20px; color: white;font-family: blinkerBold;">Espere por favor...</p>
+</ngx-spinner>
+ <!--    
+    <i class="fa fa-wrench faa-wrench animated"></i>
+    <i class="fa fa-wrench faa-wrench animated-hover"></i>
+    <a href="#" class="faa-parent animated-hover">
+      <i class="fa fa-wrench faa-wrench" style="font-size: 3em;"></i>&nbsp;hover mouse here
+    </a>
+    <i class="fa fa-wrench faa-wrench animated faa-fast"></i>
+    <i class="fa fa-wrench faa-wrench animated faa-slow"></i>
+  
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    <input type="text" [(ngModel)]="usr" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+    <div class="mt-5">
+    <h1>Instalaciones proyect Zero:</h1>
+    <p>Bootstrap</p>
+    <p>fuente importada: assets/fonts/blinker</p>
+    <p>font-awesome</p>
+    <p>font-awesome Animations</p>
+    <p>ngx-spinner</p>
+    <p>SASS</p>
+    <p>models de ejemplo</p>
+    <p>FormsModule</p>
+    <p>services de ejemplo</p>
+    <p>app routing</p>
+    <p>home component</p>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+     <th scope="col">Bandera</th>
+     <th scope="col">País</th>
+     <th scope="col">Capital</th>
+   </tr>
+  </thead>
+ <tbody>
+   <tr *ngFor="let pais of paices">
+     <th scope="row"><img [src]="pais.flag" width="80px" alt=""></th>
+     <td>{{pais.translations.es}}</td>
+     <td>{{pais.capital}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+-->
+
+   <h1 class="text-center text-light pt-2">
+     Bienvenido a... <br> ¿Adivina que país?
+   </h1>
+   <button (click)="verPista()" [ngClass]="{'disabled': pista}" class="btn btn-warning" style="float: left; margin: 20px;border-radius: 30px;"> Pista <i class="fa fa-lightbulb"></i></button>
+   <button (click)="verRespuesta()" [ngClass]="{'disabled': respuesta}" class="btn btn-success" style="float: right;margin: 20px;border-radius: 30px;"> Respuesta <i class="fa fa-check-circle faa-wrench animated"></i></button>
+       <div style="clear: both;"></div>
+   <div class="container text-center" style="background-color: #eee;padding: 20px;max-width: 700px;width: 100%;border-radius: 15px;">
+    <h2 [ngClass]="{'hide': !respuesta}" ><i class="fa fa-check-circle text-success"></i> {{pais.translations.es}} <br>{{pais.name}}</h2>
+    <img style="margin: 0 auto;max-width: 400px;width: 100%;" [src]="pais.flag"  alt="">
+    <h3 [ngClass]="{'hide': !pista}" style="padding: 3%;"><i class="fa fa-lightbulb text-warning"></i> Capital: {{pais.capital}} <i class="fa fa-lightbulb text-warning"></i></h3>
+  </div>
+  <div style="width: 100%;text-align: center;">
+    <button (click)="comenzar()" class="btn btn-primary" style="border-radius: 30px;margin: 2% auto;">COMENZAR</button>
+  </div>

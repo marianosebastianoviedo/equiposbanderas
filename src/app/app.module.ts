@@ -8,19 +8,25 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { EquiposComponent } from './components/equipos/equipos.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EquiporojoComponent } from './components/equiporojo/equiporojo.component';
+import { EquiponegroComponent } from './components/equiponegro/equiponegro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EquiposComponent
+    EquiposComponent,
+    EquiporojoComponent,
+    EquiponegroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

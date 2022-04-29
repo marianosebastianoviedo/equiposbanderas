@@ -1,10 +1,10 @@
 <nav class="navbar fixed-top navbar-danger bg-danger" style="background-color: rgb(183, 0, 0) !important;">
   <div [ngClass]="{'faa-pulse animated': equipoRojo}" style="width: 100%;text-align: center;">
-    <a class="navbar-brand text-light" href="#">Equipo Rojo: <span class="h1"> {{puntosEquipoRojo}} </span> pts.</a>
+    <a [ngClass]="{'text-light': equipoRojo}" class="navbar-brand" style="color: gray;" href="#">Equipo Rojo: <span class="h1"> {{puntosEquipoRojo}} </span> pts.</a>
   </div>
 </nav>
 <div class="container" style="max-width: 750px;">
-
+  
   <div class="row" style="text-align: center; padding-top: 12%;">
     <div class="col-6">
       <button (click)="verPista()" [ngClass]="{'disabled': pista}" class="btn btn-warning" style="width: 130px; border-radius: 30px;margin: 15px auto;"> Pista <i class="fa fa-lightbulb"></i></button>
@@ -12,6 +12,7 @@
     <div class="col-6">
       <button (click)="verRespuesta()" [ngClass]="{'disabled': respuesta}" class="btn btn-success" style="width: 130px; border-radius: 30px;margin: 15px auto;"> Respuesta <i class="fa fa-check-circle"></i></button>
     </div>
+    <p style="color: #eee;font-size: 20px;">Restan {{timeLeft}} segundos</p>
 </div>
 <div class="container text-center" style="background-color: #eee;padding: 20px;max-width: 700px;width: 100%;border-radius: 15px;">
   <h2 [ngClass]="{'hide': !respuesta}" ><i class="fa fa-check-circle text-success"></i> {{paices[randomPais].translations.es}} <br>{{paices[randomPais].name}}</h2>
@@ -23,9 +24,9 @@
         <button [ngClass]="{'hide': !respuesta}" (click)="correcto()" class="m-3 btn btn-success faa-vertical animated-hover faa-slow" style="border-radius: 30px;margin: 2% 1%;width: 80px;"><i class="fa fa-check-circle"></i></button>
       </div>
 </div>
-      
+   <br><br><br><br>   
 <nav class="navbar fixed-bottom navbar-dark bg-dark" style="background-color: rgb(7, 7, 7) !important;">
     <div [ngClass]="{'faa-pulse animated': !equipoRojo}" style="width: 100%;text-align: center;">
-      <a class="navbar-brand" href="#" style="justify-content: end;">Equipo Negro: <span class="h1"> {{puntosEquipoNegro}} </span> pts.</a>
+      <a [ngClass]="{'text-light': !equipoRojo}" class="navbar-brand" href="#" style="justify-content: end;color: gray;">Equipo Negro: <span class="h1"> {{puntosEquipoNegro}} </span> pts.</a>
     </div>
   </nav>

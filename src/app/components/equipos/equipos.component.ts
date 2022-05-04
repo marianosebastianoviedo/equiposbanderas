@@ -5,7 +5,6 @@ import { ApiService } from '../../services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EquiporojoComponent } from '../equiporojo/equiporojo.component';
 import { EquiponegroComponent } from '../equiponegro/equiponegro.component';
-import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-equipos',
@@ -13,6 +12,12 @@ import { timer } from 'rxjs';
   styleUrls: ['./equipos.component.scss']
 })
 export class EquiposComponent implements OnInit {
+
+  public ganaSound:HTMLAudioElement = new Audio();
+  public pierdeSound:HTMLAudioElement = new Audio();
+  public pistaSound:HTMLAudioElement = new Audio();
+  public musicaSound:HTMLAudioElement = new Audio();
+
   public timeLeft: number = 60;
   public subscribeTimer: any;
   public interval:any;
@@ -27,11 +32,24 @@ export class EquiposComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService, public api:ApiService, private nav:Router, private dialog:MatDialog) {
     this.paices = this.api.paices;
     this.getRandomInt();
+
+    this.ganaSound.src = `./assets/effects/correct.mp3`;
+    this.ganaSound.load();
+    this.pierdeSound.src = `./assets/effects/incorrect.mp3`;
+    this.pierdeSound.volume = 0.05;
+    this.pierdeSound.load();
+    this.pistaSound.src = `./assets/effects/pista.mp3`;
+    this.pistaSound.load();
+    this.musicaSound.src = `./assets/effects/timer.mp3`;
+    this.musicaSound.volume = 0.06;
+    this.musicaSound.load();
    }
 
   ngOnInit(): void {
-this.startTimer();
+    this.musicaSound.play();
+    this.startTimer();
   }
+
   startTimer() {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
@@ -39,35 +57,32 @@ this.startTimer();
       } else {
         clearInterval(this.interval);
         this.respuesta = true;
-        setTimeout(() => {
-          this.incorrecto();
-        }, 3000);
+        this.incorrecto();
       }
-    },1000)
+    },900);
   }
+
   getRandomInt() {
     this.randomPais = Math.floor(Math.random() * ((this.paices.length + 1) - 0)) + 0;
     console.log(this.randomPais);
     console.log(this.paices.length);
   }
+
   verPista(){
-    this.playAudio('pista.mp3', 1);
+    this.pistaSound.play();
     this.pista = true;
   }
+
   verRespuesta(){
+
+    this.musicaSound.currentTime = 57.5;
     clearInterval(this.interval);
     this.respuesta = true;
   }
-  playAudio(sonido:string, vol:number){
-    this.audio = new Audio();
-    this.audio.src = `./assets/effects/${sonido}`;
-    this.audio.volume = vol;
-    this.audio.load();
-    this.audio.play();    
-  }
+
   correcto(){
     
-    this.playAudio('correct.mp3',1);
+    this.ganaSound.play();
     this.paices.splice(this.randomPais, 1);
     if (this.equipoRojo === false) {
       if (this.pista === true) {
@@ -109,10 +124,13 @@ this.startTimer();
     clearInterval(this.interval);
     this.timeLeft = 60;
     this.startTimer();
-    /* this.playAudio('timer.mp3', 0.05); */
+    this.musicaSound.pause();
+    this.musicaSound.currentTime = 0;
+    this.musicaSound.play();
   }
+
   incorrecto(){
-    this.playAudio('incorrect.mp3',1);
+    this.pierdeSound.play();
     this.paices.splice(this.randomPais, 1);
     this.equipoRojo = !this.equipoRojo;
     this.pista = false;
@@ -121,6 +139,9 @@ this.startTimer();
     clearInterval(this.interval);
     this.timeLeft = 60;
     this.startTimer();
-    /* this.playAudio('timer.mp3', 0.05); */
+    this.musicaSound.pause();
+    this.musicaSound.currentTime = 0;
+    this.musicaSound.play();
   }
+
 }

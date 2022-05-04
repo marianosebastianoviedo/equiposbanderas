@@ -3,16 +3,19 @@
     <a [ngClass]="{'text-light': equipoRojo}" class="navbar-brand" style="color: gray;" href="#">Equipo Rojo: <span class="h1"> {{puntosEquipoRojo}} </span> pts.</a>
   </div>
 </nav>
-<div class="container" style="max-width: 750px;">
+<br>
+<div class="container" style="max-width: 600px;">
   
-  <div class="row" style="text-align: center; padding-top: 12%;">
-    <div class="col-6">
-      <button (click)="verPista()" [ngClass]="{'disabled': pista}" class="btn btn-warning" style="width: 130px; border-radius: 30px;margin: 15px auto;"> Pista <i class="fa fa-lightbulb"></i></button>
+  <div class="row" style="text-align: center; margin-top: 10%;">
+    <div class="col-5">
+      <button (click)="verPista()" [ngClass]="{'disabled': pista}" class="btn btn-warning" style="width: 130px; border-radius: 30px;margin: 0px auto;"> Pista <i class="fa fa-lightbulb"></i></button>
     </div>
-    <div class="col-6">
-      <button (click)="verRespuesta()" [ngClass]="{'disabled': respuesta}" class="btn btn-success" style="width: 130px; border-radius: 30px;margin: 15px auto;"> Respuesta <i class="fa fa-check-circle"></i></button>
+    <div class="col">
+      <p style="color: #eee;font-size: 30px;">{{timeLeft}}</p>
     </div>
-    <p style="color: #eee;font-size: 20px;">Restan {{timeLeft}} segundos</p>
+    <div class="col-5">
+      <button (click)="verRespuesta()" [ngClass]="{'disabled': respuesta}" class="btn btn-success" style="width: 130px; border-radius: 30px;margin: 0px auto;"> Respuesta <i class="fa fa-check-circle"></i></button>
+    </div>
 </div>
 <div class="container text-center" style="background-color: #eee;padding: 20px;max-width: 700px;width: 100%;border-radius: 15px;">
   <h2 [ngClass]="{'hide': !respuesta}" ><i class="fa fa-check-circle text-success"></i> {{paices[randomPais].es}} <br>{{paices[randomPais].name}}</h2>

@@ -51,6 +51,25 @@ color="#fff">
   </tbody>
 </table>
 -->
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Bandera</th>
+      <th scope="col">index</th>
+      <th scope="col">País</th>
+     <th scope="col">Capital</th>
+   </tr>
+  </thead>
+ <tbody>
+   <tr *ngFor="let paiz of paices; let i = index">
+     <th scope="row"><img [src]="paiz.flag" width="80px" alt=""></th>
+     <td class="bg-light">{{i}}</td>
+     <td class="bg-light">{{paiz.es}}</td>
+     <td class="bg-light">{{paiz.capital}}</td>
+    </tr>
+    
+  </tbody>
+</table>
 
    <h1 class="text-center text-light pt-2">
      Bienvenido a... <br> ¿Adivina que país?
@@ -59,9 +78,9 @@ color="#fff">
    <button (click)="verRespuesta()" [ngClass]="{'disabled': respuesta}" class="btn btn-success" style="float: right;margin: 20px;border-radius: 30px;"> Respuesta <i class="fa fa-check-circle faa-wrench animated"></i></button>
        <div style="clear: both;"></div>
    <div class="container text-center" style="background-color: #eee;padding: 20px;max-width: 700px;width: 100%;border-radius: 15px;">
-    <h2 [ngClass]="{'hide': !respuesta}" ><i class="fa fa-check-circle text-success"></i> {{pais.translations.es}} <br>{{pais.name}}</h2>
-    <img style="margin: 0 auto;max-width: 400px;width: 100%;" [src]="pais.flag"  alt="">
-    <h3 [ngClass]="{'hide': !pista}" style="padding: 3%;"><i class="fa fa-lightbulb text-warning"></i> Capital: {{pais.capital}} <i class="fa fa-lightbulb text-warning"></i></h3>
+    <h2 [ngClass]="{'hide': !respuesta}" ><i class="fa fa-check-circle text-success"></i> {{paices[10].es}} <br>{{paices[10].name}}</h2>
+    <img style="margin: 0 auto;max-width: 400px;width: 100%;" [src]="paices[10].flag"  alt="">
+    <h3 [ngClass]="{'hide': !pista}" style="padding: 3%;"><i class="fa fa-lightbulb text-warning"></i> Capital: {{paices[10].capital}} <i class="fa fa-lightbulb text-warning"></i></h3>
   </div>
   <div style="width: 100%;text-align: center;">
     <button (click)="comenzar()" class="btn btn-primary" style="border-radius: 30px;margin: 2% auto;">COMENZAR</button>

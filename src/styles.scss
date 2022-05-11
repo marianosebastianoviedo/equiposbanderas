@@ -23,15 +23,11 @@ body {
 html{ margin: 0; }
 
 @font-face {
-    font-family: blinker;
-    src: url('assets/fonts/Blinker-Regular.ttf');
-  }
-@font-face {
-    font-family: blinkerBold;
-    src: url('assets/fonts/Blinker-SemiBold.ttf');
+    font-family: Rajdhani;
+    src: url('assets/fonts/LuckiestGuy-Regular.ttf');
   }
 *{
-    font-family: blinker;
+    font-family: Rajdhani;
 }
 
 .animated {

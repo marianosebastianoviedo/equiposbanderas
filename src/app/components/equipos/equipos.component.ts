@@ -66,6 +66,7 @@ export class EquiposComponent implements OnInit {
     this.interval = setInterval(() => {
       if(this.timeLeft > 0) {
         this.timeLeft--;
+        console.log(`interval: ${this.timeLeft}`);
       } else {
         clearInterval(this.interval);
         this.incorrecto();
@@ -73,7 +74,7 @@ export class EquiposComponent implements OnInit {
     },900);
   }
   stopTimer(){
-    clearInterval(this.interval);
+    clearInterval();
     this.timeLeft = 60;
   }
 

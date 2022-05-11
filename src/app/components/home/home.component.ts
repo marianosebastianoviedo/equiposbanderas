@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   public pista: boolean = false;
   public respuesta: boolean = false;
   public paices: Array<any> = [];
-  constructor(private spinner: NgxSpinnerService, public api:ApiService, private nav:Router) {
-    this.paices = this.api.paices;
+  constructor(public api:ApiService, private nav:Router) {
+    this.paices = this.api.dificil;
   }
   
   ngOnInit(): void {
@@ -31,7 +31,16 @@ export class HomeComponent implements OnInit {
   verRespuesta(){
     this.respuesta = true;
   }
-  comenzar(){
+  facil(){
+    localStorage.setItem('dificulty', 'facil')
+    this.nav.navigate(['equipos']);
+  }
+  normal(){
+    localStorage.setItem('dificulty', 'normal')
+    this.nav.navigate(['equipos']);
+  }
+  dificil(){
+    localStorage.setItem('dificulty', 'dificil')
     this.nav.navigate(['equipos']);
   }
 }

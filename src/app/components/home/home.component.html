@@ -1,10 +1,10 @@
-<ngx-spinner
+<!-- <ngx-spinner
 bdColor="rgba(51,51,51,0.8)"
 size="medium"
 color="#fff">   
 <img width="200px" class="faa-spin faa-reverse faa-slow animated" src="./assets/rhcp.png" alt="">
 <p style="font-size: 20px; color: white;font-family: blinkerBold;">Espere por favor...</p>
-</ngx-spinner>
+</ngx-spinner> -->
  <!--    
     <i class="fa fa-wrench faa-wrench animated"></i>
     <i class="fa fa-wrench faa-wrench animated-hover"></i>
@@ -83,5 +83,7 @@ color="#fff">
     <h3 [ngClass]="{'hide': !pista}" style="padding: 3%;"><i class="fa fa-lightbulb text-warning"></i> Capital: {{paices[10].capital}} <i class="fa fa-lightbulb text-warning"></i></h3>
   </div>
   <div style="width: 100%;text-align: center;">
-    <button (click)="comenzar()" class="btn btn-primary" style="border-radius: 30px;margin: 2% auto;">COMENZAR</button>
+    <button (click)="facil()" class="btn btn-primary" style="border-radius: 30px;margin: 2% auto; width: 90px;">FACIL</button>
+    <button (click)="normal()" class="btn btn-success" style="border-radius: 30px;margin: 2% auto; width: 90px;">NORMAL</button>
+    <button (click)="dificil()" class="btn btn-danger" style="border-radius: 30px;margin: 2% auto; width: 90px;">DIFICIL</button>
   </div>

@@ -19,17 +19,22 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  it(`should have as title 'zero'`, () => {
+  
+  it('should be true', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('zero');
+    expect(app.mostrarBoolean(false)).toBeTrue();
   });
 
-  it('should render title', () => {
+  it('should be false', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('zero app is running!');
+    const app = fixture.componentInstance;
+    expect(app.mostrarBoolean(true)).toBeFalse();
   });
+  it('should be boolean', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.mostrarBoolean(true)).toMatch('^([Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])$');
+  });
+  
 });
